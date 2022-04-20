@@ -2,6 +2,8 @@ const express = require('express')
 const User = require('../models/userModel')
 const Post = require('../models/postModel')
 const bcrypt = require('bcryptjs');
+const multer  = require('multer')
+//const upload = multer({ dest: './images/' })
 
 const userRouter = express()
 

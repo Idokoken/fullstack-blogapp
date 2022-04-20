@@ -9,6 +9,8 @@ const keys = require('./config/keys')
 require('dotenv').config()
 const authRouter = require('./routes/auth')
 const userRouter = require('./routes/user')
+const postRouter = require('./routes/post')
+const categoryRouter = require('./routes/category')
 
 const app = express()
 const port = process.env.PORT || 8000
@@ -26,7 +28,7 @@ app.use(cors())
 app.use(morgan('dev'))
 
 //database setup
-mongoose.connect(keys.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true
+mongoose.connect(keys.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true
 })
 const db = mongoose.connection
 db.on('error', () => console.log('error connecting to database'))
@@ -38,5 +40,7 @@ app.get('/', (req, res) => {
 })
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
+app.use('/api/post', postRouter)
+app.use('/api/category', categoryRouter)
 
 app.listen(port, () => console.log(`listening on port ${chalk.blue(8000)}`))

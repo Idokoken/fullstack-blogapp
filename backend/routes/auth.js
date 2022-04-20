@@ -24,7 +24,6 @@ auth.post('/register', async(req, res) => {
 	}
 })
 
-
 auth.route('/login')
  .get((req, res) => {
  	 res.json({msg: 'login'})
