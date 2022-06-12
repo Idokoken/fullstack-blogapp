@@ -12,6 +12,7 @@ const userRouter = require("./routes/user");
 const postRouter = require("./routes/post");
 const categoryRouter = require("./routes/category");
 const path = require("path");
+const multer = require("multer");
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -30,6 +31,7 @@ app.use(
   })
 );
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 //database setup
 mongoose.connect(keys.MONGO_URI, {
@@ -41,6 +43,23 @@ const db = mongoose.connection;
 db.on("error", () => console.log("error connecting to database"));
 db.once("open", () =>
   console.log(`connected to ${chalk.magenta("fullstack-blog database")}`)
+);
+
+//file uplaods setup
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  },
+});
+const upload = multer({ storage });
+app.post(
+  "/api/upload",
+  upload.single("file", (req, res) => {
+    res.status(200).json("file successsfully uploaded");
+  })
 );
 
 // routes setups
