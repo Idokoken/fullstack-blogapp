@@ -1,0 +1,67 @@
+.settings{
+	display: flex;
+	
+}
+.settingswrapper{
+	flex: 9;
+	padding: 20px;
+}
+.settingstitle{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.settingseditTitle{
+	font-size: 30px;
+	margin-bottom: 20px;
+	color: #712929;
+}
+.settingsdeleteTitle{
+		font-size: 15px;
+		color: red;
+}
+.settingsform{
+	display: flex;
+	flex-direction: column;
+	/* padding: 20px; */
+}
+.settingsform > label{
+	font-size: 30px;
+	margin-top: 20px;
+}
+.settingsform > input{
+	margin: 10px 0;
+	color: #681B1B;
+}
+.settingsPP{
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+}
+.settingsimg{
+	width: 80px;
+	height: 80px;
+	border-radius: 20px;
+	object-fit: cover;
+}
+.settingsPPIcon{
+	width: 25px;
+	height: 25px;
+	margin-left: 10px;
+	color: white;
+	background-color: #4E0C0C;
+	border-radius: 50%;
+	border: 1px solid #4E0C0C;
+	
+}
+.settingsBtn{
+	width: 150px;
+	color: white;
+	background-color: #137745;
+	align-self: center;
+	height: 40px;
+	border-radius: 10px;
+	font-weight: 700;
+	font-size: 20px;
+	cursor: pointer;
+}
