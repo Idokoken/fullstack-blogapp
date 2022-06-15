@@ -1,0 +1,52 @@
+.register{
+	 height: calc(100vh - 50px);
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: center;
+	 align-items: center;
+	 background: linear-gradient(rgba(255,255,255,o.5),rgba(255,255,255,0.5)), url('./register.jpg');
+	 background-size: cover;
+}
+.registerform{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.registertitle{
+	font-size: 50px;
+	color: #484545;
+}
+.registerinput {
+	margin-bottom: 25px;
+	padding: 10px;
+	border-radius: 5px;
+}
+.registerlabel{
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.registerBtn{
+	margin: 20px;
+	color: white;
+	pointer: cursor;
+	background-color: darkgreen;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+}
+.registerLogin{
+	margin-top: 50px;
+}
+.registerLogintitle{
+	font-style: italics;
+}
+
+.registerLoginbtn {
+	background-color: blue;
+	color: white;
+	pointer: cursor;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+}
