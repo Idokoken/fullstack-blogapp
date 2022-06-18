@@ -16,7 +16,10 @@ function App() {
 
   return (
     <Router>
+<<<<<<< HEAD
       <Topbar />
+=======
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/post/:id" element={<Single />} />
@@ -33,4 +36,8 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

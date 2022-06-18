@@ -2,6 +2,11 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import "./settings.css";
 import Sidebar from "./sidebar/Sidebar";
+<<<<<<< HEAD
+=======
+import Topbar from "./topbar/Topbar";
+import "./write.css";
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
 import { Context } from "../context/Context";
 
 function Settings() {
@@ -38,6 +43,11 @@ function Settings() {
   };
 
   return (
+<<<<<<< HEAD
+=======
+    <>
+    <Topbar />
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
     <div className="settings">
       <div className="settingswrapper">
         <div className="settingstitle">
@@ -104,7 +114,15 @@ function Settings() {
       </div>
       <Sidebar />
     </div>
+<<<<<<< HEAD
   );
 }
 
 export default Settings;
+=======
+    </>
+  );
+}
+
+export default Settings;
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

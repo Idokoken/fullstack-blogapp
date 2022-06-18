@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/userModel");
 const Category = require("../models/categoryModel");
+const aws = require("aws-sdk");
 
 const categoryRouter = express.Router();
 

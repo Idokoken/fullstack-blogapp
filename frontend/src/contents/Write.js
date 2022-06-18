@@ -1,5 +1,9 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
+<<<<<<< HEAD
+=======
+import Topbar from "./topbar/Topbar";
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
 import "./write.css";
 import { Context } from "../context/Context";
 
@@ -41,6 +45,11 @@ function Write() {
   };
 
   return (
+<<<<<<< HEAD
+=======
+     <div>
+     <Topbar />
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
     <div className="write">
       {file && (
         <img
@@ -85,7 +94,15 @@ function Write() {
         </button>
       </form>
     </div>
+<<<<<<< HEAD
   );
 }
 
 export default Write;
+=======
+   </div>
+  );
+}
+
+export default Write;
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

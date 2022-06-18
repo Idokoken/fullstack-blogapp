@@ -1,6 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
+<<<<<<< HEAD
+=======
+import Topbar from "./topbar/Topbar";
+import "./write.css";
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
 import "./singlepost.css";
 import { Context } from "../context/Context";
 
@@ -55,6 +60,11 @@ function SinglePost() {
     }
   };
   return (
+<<<<<<< HEAD
+=======
+  <>
+    <Topbar />
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
     <div className="singlepost">
       <div className="wrapper">
         {post.photo && (
@@ -113,7 +123,15 @@ function SinglePost() {
         )}
       </div>
     </div>
+<<<<<<< HEAD
   );
 }
 
 export default SinglePost;
+=======
+   </>
+  );
+}
+
+export default SinglePost;
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

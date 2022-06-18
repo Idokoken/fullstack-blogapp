@@ -2,6 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+<<<<<<< HEAD
+=======
+import Topbar from "./topbar/Topbar";
+import "./write.css";
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
 import Sidebar from "./sidebar/Sidebar";
 import Header from "./header/Header";
 import Posts from "./Posts";
@@ -27,6 +32,10 @@ function Home() {
 
   return (
     <>
+<<<<<<< HEAD
+=======
+    <Topbar />
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
       <Header />
       <div className="home">
         <Posts posts={posts} />
@@ -36,4 +45,8 @@ function Home() {
   );
 }
 
+<<<<<<< HEAD
 export default Home;
+=======
+export default Home;
+>>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
