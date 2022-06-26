@@ -31,8 +31,6 @@ function Home() {
   }, [search]);
 
   return (
-    <>
-<<<<<<< HEAD
 =======
     <Topbar />
 >>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
