@@ -1,9 +1,11 @@
-<<<<<<< HEAD
 import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
+  UPDATE_START,
+  UPDATE_SUCCESS,
+  UPDATE_FAILURE,
 } from "./ActionType";
 
 export const LoginStart = (userCredential) => ({
@@ -28,34 +30,20 @@ export const logout = () => {
     type: LOGOUT,
   };
 };
-=======
-import {
-  LOGIN_START,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT,
-} from "./ActionType";
 
-export const LoginStart = (userCredential) => ({
-  type: LOGIN_START,
+export const updateStart = (userCredential) => ({
+  type: UPDATE_START,
 });
 
-export const loginSuccess = (user) => {
+export const updateSuccess = (user) => {
   return {
-    type: LOGIN_SUCCESS,
+    type: UPDATE_SUCCESS,
     payload: user,
   };
 };
 
-export const loginFailuere = () => {
+export const updateFailuere = () => {
   return {
-    type: LOGIN_FAILURE,
+    type: UPDATE_FAILURE,
   };
 };
-
-export const logout = () => {
-  return {
-    type: LOGOUT,
-  };
-};
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

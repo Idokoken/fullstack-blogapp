@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Topbar from "./contents/topbar/Topbar";
 import Home from "./contents/Home";
 import Single from "./contents/Single";
 import Write from "./contents/Write";
@@ -16,10 +15,6 @@ function App() {
 
   return (
     <Router>
-<<<<<<< HEAD
-      <Topbar />
-=======
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/post/:id" element={<Single />} />
@@ -36,8 +31,4 @@ function App() {
   );
 }
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

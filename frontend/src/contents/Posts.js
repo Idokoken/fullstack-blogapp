@@ -1,33 +1,49 @@
 import React from "react";
-<<<<<<< HEAD
-=======
-import Topbar from "./topbar/Topbar";
-import "./write.css";
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
-import "./posts.css";
-import Post from "./Post";
+import { NavLink } from "react-router-dom";
 
 function Posts(props) {
-  return (
-<<<<<<< HEAD
-=======
-    <>
-    <Topbar />
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
-    <div className="posts">
-      {props.posts.map((post, i) => (
-        <Post key={post._id} post={post} />
-      ))}
+  const Pf = "http://localhost:8000/images/";
+
+  const postData = props.posts.map((post, i) => (
+    <div
+      className="col-md-3 col-sm-12 mb-3"
+      key={post.id}
+      style={{ width: "350px" }}
+    >
+      <div className="card">
+        {post.photo ? (
+          <img
+            className="card-img-top"
+            height="250px"
+            src={Pf + post.photo}
+            alt="post cover"
+          />
+        ) : (
+          <img
+            className="card-img-top"
+            height="250px"
+            src="/images/card.jpg"
+            alt="post cover"
+          />
+        )}
+        <div className="card-body">
+          <h5 className="card-title">{post.title.substring(0, 12)}</h5>
+          <span className="card-text">
+            {new Date(post.createdAt).toDateString()}
+          </span>
+          <p className="card-text"> {post.description.substring(0, 50)}</p>
+          <NavLink to={`/post/${post._id}`} className="btn btn-primary">
+            Read More
+          </NavLink>
+        </div>
+      </div>
     </div>
-<<<<<<< HEAD
+  ));
+  return (
+    <div className="container mt-3">
+      <div className="row d-flex justify-content-center">{postData}</div>
+    </div>
   );
 }
 
 export default Posts;
-=======
-    </>
-  );
-}
-
-export default Posts;
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

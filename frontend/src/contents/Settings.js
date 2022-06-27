@@ -1,24 +1,29 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import "./settings.css";
-import Sidebar from "./sidebar/Sidebar";
-<<<<<<< HEAD
-=======
-import Topbar from "./topbar/Topbar";
+import Sidebar from "./Sidebar";
+import Topbar from "./Topbar";
 import "./write.css";
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
 import { Context } from "../context/Context";
+import {
+  UPDATE_START,
+  UPDATE_SUCCESS,
+  UPDATE_FAILURE,
+} from "../context/ActionType";
 
 function Settings() {
+  const Pf = "http://localhost:8000/images/";
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
   const [success, setSuccess] = useState(false);
-  const { user } = useContext(Context);
+  const { user, dispatch } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch({ type: UPDATE_START });
     const updateUser = { username, email, password, userId: user._id };
     if (file) {
       const data = new FormData();
@@ -35,94 +40,79 @@ function Settings() {
     }
 
     try {
-      await axios.put("/user/" + user._id, updateUser);
+      const res = await axios.put("/user/" + user._id, updateUser);
       setSuccess(true);
+      dispatch({ type: UPDATE_SUCCESS, payload: res.data });
     } catch (err) {
       console.log(err);
+      dispatch({ type: UPDATE_FAILURE });
     }
   };
 
   return (
-<<<<<<< HEAD
-=======
     <>
-    <Topbar />
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
-    <div className="settings">
-      <div className="settingswrapper">
-        <div className="settingstitle">
-          <span className="settingseditTitle">update ur Account</span>
-          <span className="settingsdeleteTitle">Delete ur Account</span>
-        </div>
-        <form className="settingsform" onSubmit={handleSubmit}>
-          <label>Profile Picture</label>
-          <div className="settingsPP">
-            {user.profilePix ? (
+      <Topbar />
+      <div className="settings">
+        <div className="settingswrapper">
+          <div className="settingstitle">
+            <span className="settingseditTitle">update ur Account</span>
+            <span className="settingsdeleteTitle">Delete ur Account</span>
+          </div>
+          <form className="settingsform" onSubmit={handleSubmit}>
+            <label>Profile Picture</label>
+            <div className="settingsPP">
               <img
                 className="settingsimg"
-                src={user.profilePix}
+                src={file ? URL.createObjectURL(file) : Pf + user.profilePix}
                 alt="profile"
                 name="profile"
               />
-            ) : (
-              <img
-                className="settingsimg"
-                src="/images/profile.png"
-                alt="profile"
-              />
-            )}
-            <label htmlFor="inputfile">
-              <i className="settingsPPIcon fa fa-user-circle"></i>
-            </label>
-            <input
-              id="inputfile"
-              className="inputfile"
-              type="file"
-              onChange={(e) => setFile(e.target.files[0])}
-              style={{ display: "none" }}
-            />
-          </div>
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder={user.username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder={user.email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="settingsBtn" type="submit">
-            Update
-          </button>
-          {success && (
-            <p
-              className="alert alert-success"
-              style={{ textAlign: "center", marginTop: "20px", width: "50%" }}
-            >
-              user info successfully updated
-            </p>
-          )}
-        </form>
-      </div>
-      <Sidebar />
-    </div>
-<<<<<<< HEAD
-  );
-}
 
-export default Settings;
-=======
+              <label htmlFor="inputfile">
+                <i className="settingsPPIcon fa fa-user-circle"></i>
+              </label>
+              <input
+                id="inputfile"
+                className="inputfile"
+                type="file"
+                onChange={(e) => setFile(e.target.files[0])}
+                style={{ display: "none" }}
+              />
+            </div>
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder={user.username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder={user.email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="settingsBtn" type="submit">
+              Update
+            </button>
+            {success && (
+              <p
+                className="alert alert-success"
+                style={{ textAlign: "center", marginTop: "20px", width: "50%" }}
+              >
+                user info successfully updated
+              </p>
+            )}
+          </form>
+        </div>
+        <Sidebar />
+      </div>
     </>
   );
 }
 
 export default Settings;
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

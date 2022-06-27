@@ -1,11 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
-<<<<<<< HEAD
-=======
-import Topbar from "./topbar/Topbar";
-import "./write.css";
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
+import Topbar from "./Topbar";
+import Sidebar from "./Sidebar";
 import "./singlepost.css";
 import { Context } from "../context/Context";
 
@@ -60,78 +57,69 @@ function SinglePost() {
     }
   };
   return (
-<<<<<<< HEAD
-=======
-  <>
-    <Topbar />
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
-    <div className="singlepost">
-      <div className="wrapper">
-        {post.photo && (
-          <img
-            src={Pf + post.photo}
-            alt="post cover"
-            className="singlepostimage"
-          />
-        )}
-        {updateMode ? (
-          <input
-            type="text"
-            value={title}
-            className="singlepostitleInput"
-            autoFocus
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        ) : (
-          <h1 className="singlepostitle">
-            {title}
-            {post.username === user?.username && (
-              <div className="edit">
-                <div className="editIcon" onClick={() => setUpdateMode(true)}>
-                  <i className="fa-solid fa-pen-to-square "></i>
+    <>
+      <Topbar />
+      <div className="singlepost container">
+        <div className="wrapper">
+          {post.photo && (
+            <img
+              src={Pf + post.photo}
+              alt="post cover"
+              className="singlepostimage"
+            />
+          )}
+          {updateMode ? (
+            <input
+              type="text"
+              value={title}
+              className="singlepostitleInput"
+              autoFocus
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          ) : (
+            <h1 className="singlepostitle">
+              {title}
+              {post.username === user?.username && (
+                <div className="edit">
+                  <div className="editIcon" onClick={() => setUpdateMode(true)}>
+                    <i className="fa-solid fa-pen-to-square "></i>
+                  </div>
+                  <div className="editIcon" onClick={handleDelete}>
+                    <i className="fa-solid fa-trash-can "></i>
+                  </div>
                 </div>
-                <div className="editIcon" onClick={handleDelete}>
-                  <i className="fa-solid fa-trash-can "></i>
-                </div>
-              </div>
-            )}
-          </h1>
-        )}
+              )}
+            </h1>
+          )}
 
-        <div className="singlepostinfo">
-          <span>
-            <NavLink to={`/?user=${post.username}`}>
-              Authur: <b>{post.username}</b>
-            </NavLink>
-          </span>
-          <span>{new Date(post.createdAt).toDateString()}</span>
+          <div className="singlepostinfo">
+            <span>
+              <NavLink to={`/?user=${post.username}`}>
+                Authur: <b>{post.username}</b>
+              </NavLink>
+            </span>
+            <span>{new Date(post.createdAt).toDateString()}</span>
+          </div>
+          {updateMode ? (
+            <textarea
+              className="singlepostdescInput"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+              autoFocus
+            />
+          ) : (
+            <p className="singlepostdesc">{desc}</p>
+          )}
+          {updateMode && (
+            <button className="singlePostButton" onClick={handleUpdate}>
+              Update
+            </button>
+          )}
         </div>
-        {updateMode ? (
-          <textarea
-            className="singlepostdescInput"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-            autoFocus
-          />
-        ) : (
-          <p className="singlepostdesc">{desc}</p>
-        )}
-        {updateMode && (
-          <button className="singlePostButton" onClick={handleUpdate}>
-            Update
-          </button>
-        )}
       </div>
-    </div>
-<<<<<<< HEAD
+      <Sidebar />
+    </>
   );
 }
 
 export default SinglePost;
-=======
-   </>
-  );
-}
-
-export default SinglePost;
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1

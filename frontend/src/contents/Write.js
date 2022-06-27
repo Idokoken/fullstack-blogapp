@@ -1,9 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-=======
-import Topbar from "./topbar/Topbar";
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
+import Topbar from "./Topbar";
 import "./write.css";
 import { Context } from "../context/Context";
 
@@ -12,11 +9,6 @@ function Write() {
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setData({ ...data, [name]: value });
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,64 +37,54 @@ function Write() {
   };
 
   return (
-<<<<<<< HEAD
-=======
-     <div>
-     <Topbar />
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
-    <div className="write">
-      {file && (
-        <img
-          src={URL.createObjectURL(file)}
-          alt="article "
-          className="writeImg"
-        />
-      )}
+    <div>
+      <Topbar />
+      <div className="write">
+        {file && (
+          <img
+            src={URL.createObjectURL(file)}
+            alt="article "
+            className="writeImg"
+          />
+        )}
 
-      <form className="writeform" onSubmit={handleSubmit}>
-        <div className="writeformgroup">
-          <label htmlFor="fileinput">
-            <i className="fa-solid fa-plus writeIcon"></i>
-          </label>
-          <input
-            type="file"
-            name="file"
-            id="fileinput"
-            onChange={(e) => setFile(e.target.files[0])}
-            style={{ display: "none" }}
-          />
-          <label htmlFor="textinput">Title</label>
-          <input
-            type="text"
-            name="title"
-            id="textinput"
-            className="textinput"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div className="writeformgroup">
-          <textarea
-            type="text"
-            className="textinput writetext"
-            placeholder="write your story"
-            name="description"
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
-        <button className="writeBtn" type="submit">
-          Publish
-        </button>
-      </form>
+        <form className="writeform" onSubmit={handleSubmit}>
+          <div className="writeformgroup">
+            <label htmlFor="fileinput">
+              <i className="fa-solid fa-plus writeIcon"></i>
+            </label>
+            <input
+              type="file"
+              name="file"
+              id="fileinput"
+              onChange={(e) => setFile(e.target.files[0])}
+              style={{ display: "none" }}
+            />
+            <label htmlFor="textinput">Title</label>
+            <input
+              type="text"
+              name="title"
+              id="textinput"
+              className="textinput"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="writeformgroup">
+            <textarea
+              type="text"
+              className="textinput writetext"
+              placeholder="write your story"
+              name="description"
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
+          <button className="writeBtn" type="submit">
+            Publish
+          </button>
+        </form>
+      </div>
     </div>
-<<<<<<< HEAD
   );
 }
 
 export default Write;
-=======
-   </div>
-  );
-}
-
-export default Write;
->>>>>>> 7b2de743ab82ef1392898303fd765efd6c8824f1
